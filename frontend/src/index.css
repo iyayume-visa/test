@@ -1,1 +1,112 @@
-@tailwind base;\n@tailwind components;\n@tailwind utilities;\n
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #fff;
+  color: #333;
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(135deg, #004aad, #5a8ee0);
+  color: white;
+  animation: fadeIn 1.2s ease;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background: white;
+  object-fit: contain;
+}
+
+.tagline {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.services {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  width: 260px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.contact {
+  padding: 50px 20px;
+  background: #f8f9fc;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  background: #004aad;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0b74de;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #004aad;
+  color: white;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,74,173,0.85);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.4s ease;
+}
