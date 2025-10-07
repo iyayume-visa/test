@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function App() {
   const logoSrc = "/logo.png";
@@ -9,30 +10,29 @@ export default function App() {
     message: "",
   });
   const [status, setStatus] = useState("");
-
   async function handleSubmit(e) {
-    e.preventDefault();
-    setStatus("Sending...");
+  e.preventDefault();
+  setStatus("Sending...");
     try {
-      const res = await fetch("https://formspree.io/f/your_form_id", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (res.ok) {
-        setStatus("✅ Message sent successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          service: "Business Visa (Individual)",
-          message: "",
-        });
-      } else throw new Error();
-    } catch (err) {
-      setStatus("❌ Failed to send. Try again later.");
-    }
+    await emailjs.send(
+      "service_xr9xumw", // Your EmailJS Service ID
+      "template_wrn7ptr", // Your Template ID
+      {
+        name: formData.name,
+        email: formData.email,
+        service: formData.service,
+        message: formData.message,
+      },
+      "qwertyuiop123456" // Your Public Key
+    );
+    setStatus("✅ Message sent successfully!");
+    setFormData({ name: "", email: "", service: "Business Visa (Individual)", message: "" });
+  } catch (err) {
+    setStatus("❌ Failed to send. Try again later.");
   }
+}
 
+ 
   return (
     <div className="min-h-screen bg-white text-blue-800 font-sans">
       <header className="max-w-6xl mx-auto p-6 flex items-center justify-between">
