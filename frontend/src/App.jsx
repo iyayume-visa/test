@@ -23,7 +23,7 @@ export default function App() {
         service: formData.service,
         message: formData.message,
       },
-      "qwertyuiop123456" // Your Public Key
+      "Hv1S7qKqQ4jxjfRA2SQqE" // Your Public Key
     );
     setStatus("✅ Message sent successfully!");
     setFormData({ name: "", email: "", service: "Business Visa (Individual)", message: "" });
